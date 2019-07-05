@@ -4,7 +4,7 @@ import {Component} from '@angular/core'
   selector:'pm-root',
   template:`
     <div><h2>{{pageTitle}}</h2>
-    <div>my first component == andrew </div>
+       <pm-products></pm-products>
     </div>
   `
 })
