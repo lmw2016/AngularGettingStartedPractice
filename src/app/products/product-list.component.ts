@@ -23,7 +23,9 @@ export class ProductListComponent implements OnInit, OnChanges,OnDestroy{
       this.filteredProducts=this.listFilter?this.performFilter(this.listFilter):this.products;
     }
       
-    
+    onRatingClicked(message:string):void{
+      this.pageTitle='Product List: '+message;
+    }
 
 
     filteredProducts:IProduct[];
