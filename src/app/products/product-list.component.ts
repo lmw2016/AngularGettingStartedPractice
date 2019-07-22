@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit, OnChanges,OnDestroy{
     imageMargin:number=2;
     showImage:boolean=false;
     //listFilter:string='care';
+    errorMessage:string;
 
     _listFilter:string;
     get listFilter():string{
@@ -53,8 +54,15 @@ export class ProductListComponent implements OnInit, OnChanges,OnDestroy{
 
     ngOnInit(): void {
       console.log('onInit');
-      this.products=this.productService.getProducts();
-      this.filteredProducts=this.products;
+      //this.products=this.productService.getProducts();
+      //this.filteredProducts=this.products;
+      this.productService.getProducts().subscribe(
+        products=>{
+          this.products=products;
+          this.filteredProducts=this.products
+        },
+        error=>this.errorMessage=<any>error
+      )
     }
 
     ngOnDestroy(): void {
